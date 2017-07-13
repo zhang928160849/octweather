@@ -94,12 +94,24 @@ public class ChooseAreaFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(currentLevel == LEVEL_PROVINCE){
                     selectedProvince = provinceList.get(position);
-
+                    queryProvinces();
+                }else if(currentLevel == LEVEL_CITY){
+                    selectedCity =cityList.get(position);
+                    queryCities();
                 }
             }
         });
-
-
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(currentLevel == LEVEL_COUNTY){
+                    queryCities();
+                }
+                if(currentLevel == LEVEL_CITY);
+                queryProvinces();
+            }
+        });
+        queryProvinces();
     }
 
     /*
